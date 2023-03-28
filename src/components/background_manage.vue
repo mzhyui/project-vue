@@ -1,3 +1,4 @@
+
 <template>
   <el-container style="height: 500px; border: 1px solid #eee">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
@@ -56,11 +57,20 @@
           <i class="el-icon-setting" style="margin-right: 15px"></i>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
+            <el-dropdown-item>
+              <!-- 新增 -->
+              <el-button type="text" @click="dialogFormVisible = true">新增</el-button>
+
+
+            </el-dropdown-item>
+
             <el-dropdown-item>删除</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
         <span>管理员</span>
+        <!-- <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button> -->
+
+
       </el-header>
       <!-- TODO https://developer.aliyun.com/article/978054 根据内容修改样式 -->
       <el-main>
@@ -91,7 +101,41 @@
           </el-table-column>
         </el-table>
       </el-main>
+
     </el-container>
+    <el-dialog title="新增档案" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+      <!-- <el-form-item label="档案编号" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="婚姻状况" :label-width="formLabelWidth">
+          <el-select v-model="form.region" placeholder="请选择婚姻状况">
+            <el-option label="已婚" value="shanghai"></el-option>
+            <el-option label="未婚" value="beijing"></el-option>
+          </el-select>
+            </el-form-item> -->
+        <el-tabs type="border-card">
+          <el-tab-pane label="用户管理">
+            <el-form-item label="档案编号" :label-width="formLabelWidth">
+              <el-input v-model="form.name" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="婚姻状况" :label-width="formLabelWidth">
+              <el-select v-model="form.region" placeholder="请选择婚姻状况">
+                <el-option label="已婚" value="shanghai"></el-option>
+                <el-option label="未婚" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-tab-pane>
+          <el-tab-pane label="配置管理">配置管理</el-tab-pane>
+          <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+          <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+        </el-tabs>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </el-container>
 </template>
   
@@ -108,6 +152,7 @@
 </style>
   
 <script>
+
 export default {
   name: 'bgM'
   , methods: {
@@ -141,7 +186,37 @@ export default {
       , ToDate: '2022'
     };
     return {
-      tableData: Array(5).fill(item1).concat(Array(5).fill(item2))
+      tableData: Array(5).fill(item1).concat(Array(5).fill(item2)),
+      gridData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }],
+      dialogTableVisible: false,
+      dialogFormVisible: false,
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
+      formLabelWidth: '120px'
     }
   }
 };
