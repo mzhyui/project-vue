@@ -1,4 +1,4 @@
-<template>  
+<template>
   <el-container style="height: 500px; border: 1px solid #eee">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
       <el-menu :default-openeds="['1', '3']">
@@ -49,7 +49,7 @@
         </el-submenu>
       </el-menu>
     </el-aside>
-    
+
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
         <el-dropdown>
@@ -60,20 +60,20 @@
             <el-dropdown-item>删除</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <span>王小虎</span>
+        <span>管理员</span>
       </el-header>
-      
+      <!-- TODO https://developer.aliyun.com/article/978054 根据内容修改样式 -->
       <el-main>
         <el-table :data="tableData">
-          <el-table-column prop="id" label="档 案 编 号" width="140">
+          <el-table-column fixed="left" prop="id" label="档 案 编 号" width="140">
           </el-table-column>
           <el-table-column prop="issue" label="病种" width="140">
           </el-table-column>
           <el-table-column prop="name" label="姓名" width="120">
           </el-table-column>
-          <el-table-column prop="age" label="年龄">
+          <el-table-column prop="age" label="年龄" width="120">
           </el-table-column>
-          <el-table-column prop="IdCard" label="身份证" width="150">
+          <el-table-column prop="IdCard" label="身份证" width="200">
           </el-table-column>
           <el-table-column prop="phone" label="手机号" width="150">
           </el-table-column>
@@ -81,7 +81,13 @@
           </el-table-column>
           <el-table-column prop="FromDate" label="服务开始日期" width="130">
           </el-table-column>
-          <el-table-column prop="ToDate" label="服务结束日期" width="130">
+          <el-table-column prop="ToDate" label="服务结束日期">
+          </el-table-column>
+          <el-table-column fixed="right" label="操作" width="100">
+            <template slot-scope="scope">
+              <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+              <el-button type="text" size="small">编辑</el-button>
+            </template>
           </el-table-column>
         </el-table>
       </el-main>
@@ -104,7 +110,12 @@
 <script>
 export default {
   name: 'bgM'
-  ,data() {
+  , methods: {
+    handleClick(row) {
+      console.log(row);
+    }
+  }
+  , data() {
     const item1 = {
       id: '4145',
       issue: 'A',
@@ -117,14 +128,20 @@ export default {
       , FromDate: '2021'
       , ToDate: '2022'
     };
-    // const item2 = {
-    //   date: '4146',
-    //   issue: 'B',
-    //   name: '王小虎',
-    //   address: '上海市普陀区金沙江路 1518 弄'
-    // };
+    const item2 = {
+      id: '4146',
+      issue: 'B',
+      name: '王大虎',
+      address: '上海市普陀区金沙江路 1518 弄'
+      , age: '42'
+      , IdCard: '320582xx'
+      , phone: '138xxx'
+      , Status: '已签约'
+      , FromDate: '2021'
+      , ToDate: '2022'
+    };
     return {
-      tableData: Array(5).fill(item1)
+      tableData: Array(5).fill(item1).concat(Array(5).fill(item2))
     }
   }
 };
