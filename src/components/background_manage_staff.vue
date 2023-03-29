@@ -67,7 +67,7 @@
             <el-dropdown-item>删除</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <span>患者管理</span>
+        <span>医护管理</span>
         <!-- <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button> -->
 
 
@@ -75,11 +75,11 @@
       <!-- TODO https://developer.aliyun.com/article/978054 根据内容修改样式 -->
       <el-main>
         <el-table :data="tableData" label-width="auto">
-          <el-table-column fixed="left" prop="id" label="档案编号" width="140">
-          </el-table-column>
-          <el-table-column prop="issue" label="病种" width="140">
+          <el-table-column fixed="left" prop="id" label="编号" width="140">
           </el-table-column>
           <el-table-column prop="name" label="姓名" width="120">
+          </el-table-column>
+          <el-table-column prop="gender" label="性别" width="120">
           </el-table-column>
           <el-table-column prop="age" label="年龄" width="120">
           </el-table-column>
@@ -87,11 +87,11 @@
           </el-table-column>
           <el-table-column prop="phone" label="手机号" width="150">
           </el-table-column>
-          <el-table-column prop="Status" label="服务状态" width="120">
+          <el-table-column prop="Status" label="职务" width="120">
           </el-table-column>
-          <el-table-column prop="FromDate" label="服务开始日期" width="130">
+          <el-table-column prop="FromDate" label="主科室" width="130">
           </el-table-column>
-          <el-table-column prop="ToDate" label="服务结束日期">
+          <el-table-column prop="ToDate" label="其他科室">
           </el-table-column>
           <el-table-column fixed="right" label="操作" width="100">
             <template slot-scope="scope">
@@ -214,156 +214,6 @@
               <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4 }" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-tab-pane>
-          <el-tab-pane label="既往史">
-            <el-form-item label="档案编号" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="药物过敏史" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择药物过敏史">
-                <el-option label="青霉素" value="青霉素"></el-option>
-                <el-option label="黄胺" value="黄胺"></el-option>
-                <el-option label="头孢类" value="头孢类"></el-option>
-                <el-option label="其他" value="other"></el-option>
-                <el-option label="无" value="无"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="暴露史" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择暴露史">
-                <el-option label="化学" value="化学"></el-option>
-                <el-option label="放射" value="放射"></el-option>
-                <el-option label="毒性" value="毒性"></el-option>
-                <el-option label="无" value="无"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="父亲疾病史" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择父亲疾病史">
-                <el-option label="高血压" value="高血压"></el-option> 
-                <el-option label="糖尿病" value="糖尿病"></el-option>
-                <el-option label="冠心病" value="冠心病"></el-option>
-                <el-option label="慢性阻塞性肺疾病" value="慢性阻塞性肺疾病"></el-option>
-                <el-option label="恶性肿瘤" value="恶性肿瘤"></el-option>
-                <el-option label="脑血管疾病" value="脑血管疾病"></el-option>
-                <el-option label="重性精神疾病" value="重性精神疾病"></el-option>
-                <el-option label="结核病" value="结核病"></el-option>
-                <el-option label="肝炎" value="肝炎"></el-option>
-                <el-option label="无" value="无"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="母亲疾病史" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择母亲疾病史">
-                <el-option label="高血压" value="高血压"></el-option> 
-                <el-option label="糖尿病" value="糖尿病"></el-option>
-                <el-option label="冠心病" value="冠心病"></el-option>
-                <el-option label="慢性阻塞性肺疾病" value="慢性阻塞性肺疾病"></el-option>
-                <el-option label="恶性肿瘤" value="恶性肿瘤"></el-option>
-                <el-option label="脑血管疾病" value="脑血管疾病"></el-option>
-                <el-option label="重性精神疾病" value="重性精神疾病"></el-option>
-                <el-option label="结核病" value="结核病"></el-option>
-                <el-option label="肝炎" value="肝炎"></el-option>
-                <el-option label="无" value="无"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="兄弟姐妹疾病史" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择兄弟姐妹疾病史">
-                <el-option label="高血压" value="高血压"></el-option> 
-                <el-option label="糖尿病" value="糖尿病"></el-option>
-                <el-option label="冠心病" value="冠心病"></el-option>
-                <el-option label="慢性阻塞性肺疾病" value="慢性阻塞性肺疾病"></el-option>
-                <el-option label="恶性肿瘤" value="恶性肿瘤"></el-option>
-                <el-option label="脑血管疾病" value="脑血管疾病"></el-option>
-                <el-option label="重性精神疾病" value="重性精神疾病"></el-option>
-                <el-option label="结核病" value="结核病"></el-option>
-                <el-option label="肝炎" value="肝炎"></el-option>
-                <el-option label="无" value="无"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="子女疾病史" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择子女疾病史">
-                <el-option label="高血压" value="高血压"></el-option> 
-                <el-option label="糖尿病" value="糖尿病"></el-option>
-                <el-option label="冠心病" value="冠心病"></el-option>
-                <el-option label="慢性阻塞性肺疾病" value="慢性阻塞性肺疾病"></el-option>
-                <el-option label="恶性肿瘤" value="恶性肿瘤"></el-option>
-                <el-option label="脑血管疾病" value="脑血管疾病"></el-option>
-                <el-option label="重性精神疾病" value="重性精神疾病"></el-option>
-                <el-option label="结核病" value="结核病"></el-option>
-                <el-option label="肝炎" value="肝炎"></el-option>
-                <el-option label="无" value="无"></el-option>
-              </el-select>
-            </el-form-item>
-          </el-tab-pane>
-          <el-tab-pane label="高危人群">
-            <el-form-item label="档案编号" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="高危疾病" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择高危疾病">
-                <el-option label="高血压高危人群" value="高血压"></el-option> 
-                <el-option label="糖尿病高危人群" value="糖尿病"></el-option>
-                <el-option label="慢性阻塞性肺高危人群" value="慢性阻塞性肺疾病"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="危险因素" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择危险因素">
-                <el-option label="妊娠期妇女" value="妊娠期妇女"></el-option> 
-              </el-select>
-            </el-form-item>
-          </el-tab-pane>
-          <el-tab-pane label="慢病人群">
-            <el-form-item label="档案编号" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="慢性疾病" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择慢性疾病">
-                <el-option label="支气管炎" value="支气管炎"></el-option>
-                <el-option label="高血压" value="高血压"></el-option> 
-                <el-option label="糖尿病" value="糖尿病"></el-option>
-                <el-option label="冠心病" value="冠心病"></el-option>
-                <el-option label="慢性阻塞性肺疾病" value="慢性阻塞性肺疾病"></el-option>
-                <el-option label="恶性肿瘤" value="恶性肿瘤"></el-option>
-                <el-option label="脑血管疾病" value="脑血管疾病"></el-option>
-                <el-option label="重性精神疾病" value="重性精神疾病"></el-option>
-                <el-option label="结核病" value="结核病"></el-option>
-                <el-option label="肝炎" value="肝炎"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="确诊日期" :label-width="formLabelWidth">
-              <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
-              </el-date-picker>
-            </el-form-item>
-          </el-tab-pane>
-          <el-tab-pane label="附件记录">
-            <el-form-item label="编号" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="档案编号" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="上传人编号" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="原始附件名称" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="远程附件名称" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="远程文件路径" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="远程文件大小" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="上传时间" :label-width="formLabelWidth">
-              <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
-              </el-date-picker>
-            </el-form-item>
-            <el-form-item label="录入时间" :label-width="formLabelWidth">
-              <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
-              </el-date-picker>
-            </el-form-item>
-
-          </el-tab-pane>
         </el-tabs>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -404,9 +254,10 @@ export default {
       , age: '41'
       , IdCard: '320582xx'
       , phone: '138xxx'
-      , Status: '已签约'
-      , FromDate: '2021'
-      , ToDate: '2022'
+      , Status: '专家'
+      , FromDate: 'C'
+      , ToDate: 'D'
+      , gender: '男'
     };
     const item2 = {
       id: '4146',
@@ -416,9 +267,11 @@ export default {
       , age: '42'
       , IdCard: '320582xx'
       , phone: '138xxx'
-      , Status: '已签约'
-      , FromDate: '2021'
-      , ToDate: '2022'
+      , Status: '普通'
+      , FromDate: 'A'
+      , ToDate: 'B'
+      , gender: '男'
+
     };
     return {
       tableData: Array(5).fill(item1).concat(Array(5).fill(item2)),

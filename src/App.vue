@@ -3,7 +3,12 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/manage">Manage</router-link>
+      <router-link to="/manage">Manage</router-link> |
+      <router-link to="/manageStaff">ManageStaff</router-link> |
+      <router-link to="/add">Add</router-link> |
+      <router-link to="/form">Form</router-link>
+
+      
     </nav>
     <router-view/>
   </div>
