@@ -119,12 +119,6 @@
             <el-form-item label="档案编号" :label-width="formLabelWidth">
               <el-input v-model="form.name" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item label="婚姻状况" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择婚姻状况">
-                <el-option label="已婚" value="shanghai"></el-option>
-                <el-option label="未婚" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
             <el-form-item label="姓名" :label-width="formLabelWidth">
               <el-input v-model="form.name" autocomplete="off"></el-input>
             </el-form-item>
@@ -144,6 +138,12 @@
               <el-select v-model="form.region" placeholder="请选择婚姻状况">
                 <el-option label="研究生" value="shanghai"></el-option>
                 <el-option label="其他" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="婚姻状况" :label-width="formLabelWidth">
+              <el-select v-model="form.region" placeholder="请选择婚姻状况">
+                <el-option label="已婚" value="shanghai"></el-option>
+                <el-option label="未婚" value="beijing"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="证件类型" :label-width="formLabelWidth">
