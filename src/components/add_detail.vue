@@ -790,11 +790,11 @@
 </style>
 <script>
 import 'element-ui/lib/theme-chalk/index.css'
-import 'el-form-model/lib/index.css'
+// import 'el-form-model/lib/index.css'
 
-import Vue from 'vue'
-import ElFormModel from 'el-form-model'
-Vue.use(ElFormModel)
+// import Vue from 'vue'
+// import ElFormModel from 'el-form-model'
+// Vue.use(ElFormModel)
 
 export default {
     data() {
