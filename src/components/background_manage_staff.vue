@@ -104,118 +104,7 @@
 
     </el-container>
     <el-dialog title="新增档案" :visible.sync="dialogFormVisible" style="height: auto;">
-      <el-form :model="form" align="left">
-      <!-- <el-form-item label="档案编号" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="婚姻状况" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择婚姻状况">
-            <el-option label="已婚" value="shanghai"></el-option>
-            <el-option label="未婚" value="beijing"></el-option>
-          </el-select>
-              </el-form-item> -->
-        <el-tabs type="border-card">
-          <el-tab-pane label="基本信息">
-            <el-form-item label="档案编号" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="婚姻状况" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择婚姻状况">
-                <el-option label="已婚" value="shanghai"></el-option>
-                <el-option label="未婚" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="姓名" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="性别" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择性别">
-                <el-option label="男" value="shanghai"></el-option>
-                <el-option label="女" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="民族" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择婚姻状况">
-                <el-option label="汉族" value="shanghai"></el-option>
-                <el-option label="其他" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="文化程度" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择婚姻状况">
-                <el-option label="研究生" value="shanghai"></el-option>
-                <el-option label="其他" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="证件类型" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择证件类型">
-                <el-option label="身份证" value="shanghai"></el-option>
-                <el-option label="护照" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="证件号码" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="职业" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择职业">
-                <el-option label="学生" value="shanghai"></el-option>
-                <el-option label="其他" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-
-          </el-tab-pane>
-          <el-tab-pane label="详细信息">
-            <el-form-item label="出生日期" :label-width="formLabelWidth">
-              <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
-              </el-date-picker>
-            </el-form-item>
-            <el-form-item label="籍贯" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="户籍地址" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="现居住地址" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="联系电话" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="医疗费用支付途径" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择医疗费用支付途径">
-                <el-option label="城镇职工基本医疗保险" value="shanghai"></el-option>
-                <el-option label="其他" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="abo血型" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择abo血型">
-                <el-option label="A" value="shanghai"></el-option>
-                <el-option label="B" value="beijing"></el-option>
-                <el-option label="AB" value="beijing"></el-option>
-                <el-option label="O" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="rh血型" :label-width="formLabelWidth">
-              <el-select v-model="form.region" placeholder="请选择rh血型">
-                <el-option label="阴性" value="shanghai"></el-option>
-                <el-option label="阳性" value="beijing"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="建档单位" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="建档日期" :label-width="formLabelWidth">
-              <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
-              </el-date-picker>
-            </el-form-item>
-
-          </el-tab-pane>
-          <el-tab-pane label="其他信息">
-            <el-form-item label="备注" :label-width="formLabelWidth">
-              <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4 }" placeholder="请输入内容"></el-input>
-            </el-form-item>
-          </el-tab-pane>
-        </el-tabs>
-      </el-form>
+      <addPopupStaff></addPopupStaff>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
         <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
@@ -237,6 +126,7 @@
 </style>
   
 <script>
+import addPopupStaff from './add_popup_staff.vue'
 
 export default {
   name: 'bgM'
@@ -244,6 +134,9 @@ export default {
     handleClick(row) {
       console.log(row);
     }
+  },
+  components: {
+    'addPopupStaff': addPopupStaff
   }
   , data() {
     const item1 = {

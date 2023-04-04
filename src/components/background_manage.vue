@@ -144,7 +144,7 @@ export default {
   , data() {
     const item1 = {
       id: '4145',
-      issue: 'A',
+      issue: '高血压，心脏病',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1518 弄'
       , age: '41'
@@ -156,7 +156,7 @@ export default {
     };
     const item2 = {
       id: '4146',
-      issue: 'B',
+      issue: '糖尿病',
       name: '王大虎',
       address: '上海市普陀区金沙江路 1518 弄'
       , age: '42'
