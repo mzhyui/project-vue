@@ -293,5 +293,71 @@ export default {
     //         this.$emit('submit')
     //     },
     // }
+    data() {
+    const item1 = {
+      id: '4145',
+      issue: 'A',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1518 弄'
+      , age: '41'
+      , IdCard: '320582xx'
+      , phone: '138xxx'
+      , Status: '已签约'
+      , FromDate: '2021'
+      , ToDate: '2022'
+    };
+    const item2 = {
+      id: '4146',
+      issue: 'B',
+      name: '王大虎',
+      address: '上海市普陀区金沙江路 1518 弄'
+      , age: '42'
+      , IdCard: '320582xx'
+      , phone: '138xxx'
+      , Status: '已签约'
+      , FromDate: '2021'
+      , ToDate: '2022'
+    };
+    return {
+      tableData: Array(5).fill(item1).concat(Array(5).fill(item2)),
+      gridData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }],
+      dialogTableVisible: false,
+      dialogFormVisible: false,
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: '',
+        date: '',
+        sibling_history: [],
+        father_history: [],
+        mother_history: [],
+        children_history: [],
+        high_risk_disease: []
+
+      },
+      formLabelWidth: '150px'
+    }
+  }
 }
 </script>

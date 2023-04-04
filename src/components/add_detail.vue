@@ -44,10 +44,10 @@
                             <add_detail_formulation></add_detail_formulation>
                         </el-tab-pane>
                         <el-tab-pane label="随访信息">
-                            <add_detail_formulation></add_detail_formulation>
+                            <add_detail_followup></add_detail_followup>
                         </el-tab-pane>
                         <el-tab-pane label="签约记录">
-                            <add_detail_formulation></add_detail_formulation>
+                            <add_detail_contract></add_detail_contract>
                         </el-tab-pane>
                     </el-tabs>
 
@@ -99,6 +99,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 // import 'el-form-model/lib/index.css'
 import add_detail_basic from './add_detail_basic.vue';
 import addDetailFormulation from './add_detail_formulation.vue';
+import addDetailFollowup from './add_detail_followup.vue';
+import add_detail_contract from './add_detail_contract.vue';
 // import Vue from 'vue'
 // import ElFormModel from 'el-form-model'
 // Vue.use(ElFormModel)
@@ -106,7 +108,9 @@ import addDetailFormulation from './add_detail_formulation.vue';
 export default {
     components: {
         'add_detail_basic': add_detail_basic,
-        'add_detail_formulation': addDetailFormulation
+        'add_detail_formulation': addDetailFormulation,
+        'add_detail_followup': addDetailFollowup,
+        'add_detail_contract': add_detail_contract
     },
     data() {
         return {
