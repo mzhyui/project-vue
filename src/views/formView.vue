@@ -58,13 +58,13 @@
                     </el-col>
                     <el-col :span="6">
                         <div class="grid-content bg-purple">
-                            <p>人数</p>
+                            <p>考核人数</p>
                             <el-progress :percentage="50" type="circle"></el-progress>
                         </div>
                     </el-col>
                     <el-col :span="6">
                         <div class="grid-content bg-purple">
-                            <p>时间</p>
+                            <p>绩效完成率</p>
                             <el-progress :percentage="100" type="circle"></el-progress>
                         </div>
                     </el-col>
@@ -142,8 +142,12 @@ export default defineComponent({
     setup() {
         const option1 = ref({
             title: {
-                text: '柱状图示例'
+                text: '柱状图示例',
+                textStyle: {
+                    color: '#333', // set your preferred title text color here
+                },
             },
+            backgroundColor: '#f5f5f5',
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -151,12 +155,29 @@ export default defineComponent({
                 }
             },
             legend: {
-                data: ['销量']
+                data: ['销量'],
+                textStyle: {
+                    color: '#999', // set your preferred legend text color here
+                },
             },
             xAxis: {
-                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+                nameTextStyle: {
+                    color: '#666', // set your preferred X axis text color here
+                },
+                axisLabel: {
+                    color: '#777', // set your preferred X axis label text color here
+                },
             },
-            yAxis: {},
+            yAxis: {
+
+                nameTextStyle: {
+                    color: '#666', // set your preferred X axis text color here
+                },
+                axisLabel: {
+                    color: '#777', // set your preferred X axis label text color here
+                },
+            },
             series: [{
                 name: '销量',
                 type: 'bar',
@@ -168,7 +189,11 @@ export default defineComponent({
             title: {
                 text: '饼图示例',
                 left: 'left',
+                textStyle: {
+                    color: '#333', // set your preferred title text color here
+                },
             },
+            backgroundColor: '#f5f5f5',
             tooltip: {
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c} ({d}%)',
@@ -177,6 +202,9 @@ export default defineComponent({
                 orient: 'vertical',
                 left: 'right',
                 data: ['Direct', 'Email', 'Ad Networks', 'Video Ads', 'Search Engines'],
+                textStyle: {
+                    color: '#999', // set your preferred legend text color here
+                },
             },
             series: [
                 {
@@ -206,7 +234,11 @@ export default defineComponent({
             title: {
                 text: '折线图示例',
                 left: 'left',
+                textStyle: {
+                    color: '#333', // set your preferred title text color here
+                },
             },
+            backgroundColor: '#f5f5f5',
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -218,7 +250,10 @@ export default defineComponent({
             },
             legend: {
                 data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎'],
-                top: '10%'
+                top: '10%',
+                textStyle: {
+                    color: '#999', // set your preferred legend text color here
+                },
             },
             grid: {
                 left: '3%',
@@ -229,10 +264,22 @@ export default defineComponent({
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                nameTextStyle: {
+                    color: '#666', // set your preferred X axis text color here
+                },
+                axisLabel: {
+                    color: '#777', // set your preferred X axis label text color here
+                },
             },
             yAxis: {
-                type: 'value'
+                type: 'value',
+                nameTextStyle: {
+                    color: '#666', // set your preferred X axis text color here
+                },
+                axisLabel: {
+                    color: '#777', // set your preferred X axis label text color here
+                },
             },
             series: [
                 {
@@ -276,7 +323,7 @@ export default defineComponent({
   
 <style scoped>
 .chart {
-    height: 200px;
+    height: 250px;
 }
 </style>
 <style>
