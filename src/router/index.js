@@ -4,7 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import bgM from '../components/background_manage.vue'
 import bgMs from '../components/background_manage_staff.vue'
 
-import addD from '../components/add_detail.vue'
+import addD from '../views/add_detail.vue'
 import FormView from '../views/formView.vue'
 
 import loginComponents from '@/components/login_page.vue'

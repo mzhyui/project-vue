@@ -2,6 +2,13 @@
     <div>
         <el-form ref="form" :model="form" :rules="rules" class="login-box">
             <h3 class="login-title">欢迎登录</h3>
+            <el-form-item label="账号类型" prop="class">
+                <el-select v-model="form.class" placeholder="请选择账号类型">
+                    <el-option label="系统管理员" value="admin"></el-option>
+                    <el-option label="医护" value="doctor"></el-option>
+                    <el-option label="行政管理" value="nurse"></el-option>
+                </el-select>
+            </el-form-item>
             <el-form-item label="账号" prop="name">
                 <el-input type="text" placeholder="请输入用户名" v-model="form.name"></el-input>
             </el-form-item>

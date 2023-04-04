@@ -14,8 +14,8 @@
         </el-header>
         <el-container>
             <el-aside width="150px" height="auto" style="background-color: lightgray; align-items: start;">
-                <el-menu default-active="1" class="el-menu-vertical-demo" background-color="lightgray"
-                    text-color="black" active-text-color="#0fd04b">
+                <el-menu default-active="1" class="el-menu-vertical-demo" background-color="lightgray" text-color="black"
+                    active-text-color="#0fd04b">
                     <el-submenu index="1">
                         <template #title>
                             <i class="el-icon-location"></i>
@@ -35,6 +35,40 @@
                 </el-menu>
             </el-aside>
             <el-main>
+                <el-row :gutter="20">
+                    <el-col :span="12">
+                        <span>当前目标</span>
+                        <div>
+                            <el-row>
+                                <el-progress :text-inside="true" :stroke-width="26" :percentage="70"></el-progress>
+                            </el-row>
+                            <el-row>
+                                <el-progress :text-inside="true" :stroke-width="24" :percentage="100"
+                                    status="success"></el-progress>
+                            </el-row>
+                            <el-row>
+                                <el-progress :text-inside="true" :stroke-width="22" :percentage="80"
+                                    status="warning"></el-progress>
+                            </el-row>
+                            <el-row>
+                                <el-progress :text-inside="true" :stroke-width="20" :percentage="50"
+                                    status="exception"></el-progress>
+                            </el-row>
+                        </div>
+                    </el-col>
+                    <el-col :span="6">
+                        <div class="grid-content bg-purple">
+                            <p>人数</p>
+                            <el-progress :percentage="50" type="circle"></el-progress>
+                        </div>
+                    </el-col>
+                    <el-col :span="6">
+                        <div class="grid-content bg-purple">
+                            <p>时间</p>
+                            <el-progress :percentage="100" type="circle"></el-progress>
+                        </div>
+                    </el-col>
+                </el-row>
                 <el-row :gutter="20">
                     <el-col :span="12">
                         <div class="grid-content bg-purple">
@@ -100,6 +134,9 @@ export default defineComponent({
     methods: {
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
+        },
+        format(percentage) {
+            return percentage === 100 ? '满' : `${percentage}%`;
         },
     },
     setup() {

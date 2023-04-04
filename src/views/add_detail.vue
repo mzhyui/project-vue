@@ -97,10 +97,10 @@
 <script>
 import 'element-ui/lib/theme-chalk/index.css'
 // import 'el-form-model/lib/index.css'
-import add_detail_basic from './add_detail_basic.vue';
-import addDetailFormulation from './add_detail_formulation.vue';
-import addDetailFollowup from './add_detail_followup.vue';
-import add_detail_contract from './add_detail_contract.vue';
+import add_detail_basic from '../components/add_detail_basic.vue';
+import addDetailFormulation from '../components/add_detail_formulation.vue';
+import addDetailFollowup from '../components/add_detail_followup.vue';
+import add_detail_contract from '../components/add_detail_contract.vue';
 // import Vue from 'vue'
 // import ElFormModel from 'el-form-model'
 // Vue.use(ElFormModel)

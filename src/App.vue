@@ -26,7 +26,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content bg-purple"><router-link to="/form"
-                      style="font-size: x-large;">表格视图</router-link></div>
+                      style="font-size: x-large;">数据视图</router-link></div>
                 </el-col>
               </el-row>
             </nav>
@@ -37,6 +37,7 @@
 
     <router-view />
     <el-button @click="show3 = !show3">切换导航栏</el-button>
+    <el-button><router-link to="/login">返回登录页</router-link></el-button>
     <!-- <el-button>
       <router-link to="/manageStaff" style="font-size: x-large;">医护管理</router-link>
     </el-button> -->
