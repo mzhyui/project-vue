@@ -7,6 +7,7 @@ import bgMs from '../components/background_manage_staff.vue'
 import addD from '../components/add_detail.vue'
 import FormView from '../views/formView.vue'
 
+import loginComponents from '@/components/login_page.vue'
 
 
 Vue.use(VueRouter)
@@ -36,6 +37,11 @@ const routes = [
     path: '/form',
     name: 'form',
     component: FormView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: loginComponents
   },
   {
     path: '/about',

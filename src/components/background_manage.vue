@@ -103,11 +103,17 @@
       </el-main>
 
     </el-container>
-    <addPopup v-if="dialogFormVisible" @close="dialogFormVisible = false"></addPopup>
+    <el-dialog title="新增档案" :visible.sync="dialogFormVisible" style="height: auto;">
+      <addPopup></addPopup>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </el-container>
 </template>
   
-<style>
+<style scoped>
 .el-header {
   background-color: #B3C0D1;
   color: #333;

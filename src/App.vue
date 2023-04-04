@@ -37,6 +37,9 @@
 
     <router-view />
     <el-button @click="show3 = !show3">切换导航栏</el-button>
+    <!-- <el-button>
+      <router-link to="/manageStaff" style="font-size: x-large;">医护管理</router-link>
+    </el-button> -->
   </div>
   
 </template>
@@ -47,7 +50,7 @@ export default {
   })
 }
 </script>
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

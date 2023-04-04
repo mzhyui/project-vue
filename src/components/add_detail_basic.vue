@@ -834,7 +834,7 @@
     </el-form>
 </template>
 
-<style>
+<style scoped>
 .el-form-item__label-wrap {
     margin-left: 0px !important;
 
