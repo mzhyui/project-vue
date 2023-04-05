@@ -155,13 +155,13 @@ export default defineComponent({
                 }
             },
             legend: {
-                data: ['销量'],
+                data: ['人数'],
                 textStyle: {
                     color: '#999', // set your preferred legend text color here
                 },
             },
             xAxis: {
-                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+                data: ["糖尿病", "高血压", "心脏病", "血栓", "肺炎", "哮喘"],
                 nameTextStyle: {
                     color: '#666', // set your preferred X axis text color here
                 },
@@ -179,7 +179,7 @@ export default defineComponent({
                 },
             },
             series: [{
-                name: '销量',
+                name: '人数',
                 type: 'bar',
                 data: [5, 20, 36, 10, 10, 20]
             }]
@@ -201,7 +201,7 @@ export default defineComponent({
             legend: {
                 orient: 'vertical',
                 left: 'right',
-                data: ['Direct', 'Email', 'Ad Networks', 'Video Ads', 'Search Engines'],
+                data: ['直接访问', '电子邮件', '广告', '视频推广', '搜索'],
                 textStyle: {
                     color: '#999', // set your preferred legend text color here
                 },
@@ -213,11 +213,11 @@ export default defineComponent({
                     radius: '55%',
                     center: ['50%', '60%'],
                     data: [
-                        { value: 335, name: 'Direct' },
-                        { value: 310, name: 'Email' },
-                        { value: 234, name: 'Ad Networks' },
-                        { value: 135, name: 'Video Ads' },
-                        { value: 1548, name: 'Search Engines' },
+                        { value: 335, name: '直接访问' },
+                        { value: 310, name: '电子邮件' },
+                        { value: 234, name: '广告' },
+                        { value: 135, name: '视频推广' },
+                        { value: 1548, name: '搜索' },
                     ],
                     emphasis: {
                         itemStyle: {
@@ -249,7 +249,7 @@ export default defineComponent({
                 }
             },
             legend: {
-                data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎'],
+                data: ['邮件', '广告', '视频推广', '直接访问', '搜索'],
                 top: '10%',
                 textStyle: {
                     color: '#999', // set your preferred legend text color here
@@ -283,19 +283,19 @@ export default defineComponent({
             },
             series: [
                 {
-                    name: '邮件营销',
+                    name: '邮件',
                     type: 'line',
                     stack: '总量',
                     data: [120, 132, 101, 134, 90, 230, 210]
                 },
                 {
-                    name: '联盟广告',
+                    name: '广告',
                     type: 'line',
                     stack: '总量',
                     data: [220, 182, 191, 234, 290, 330, 310]
                 },
                 {
-                    name: '视频广告',
+                    name: '视频推广',
                     type: 'line',
                     stack: '总量',
                     data: [150, 232, 201, 154, 190, 330, 410]
@@ -307,7 +307,7 @@ export default defineComponent({
                     data: [320, 332, 301, 334, 390, 330, 320]
                 },
                 {
-                    name: '搜索引擎',
+                    name: '搜索',
                     type: 'line',
                     stack: '总量',
                     data: [820, 932, 901, 934, 1290, 1330, 1320]
