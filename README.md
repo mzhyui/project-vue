@@ -39,4 +39,7 @@ docker build -t proj-vue .
 docker run -d -p 8080:8080 --name vue proj-vue
 ```
 
+### problem
+user has to be root in ubuntu docker environment
+
 # nju-CDM
