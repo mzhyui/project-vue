@@ -3,7 +3,7 @@
         <el-header style="background-color: lightgray;">
             <el-menu default-active="2" class="el-menu-demo" mode="horizontal" @select="handleSelect"
                 background-color="lightgray" text-color="black" active-text-color="#0fd04b">
-                <el-menu-item index="1">院系设置</el-menu-item>
+                <el-menu-item index="1">科室设置</el-menu-item>
                 <el-menu-item index="2">数据概览</el-menu-item>
                 <el-submenu index="3">
                     <template #title>职员数据</template>

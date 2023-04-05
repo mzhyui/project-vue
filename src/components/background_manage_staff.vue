@@ -54,20 +54,18 @@
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
         <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
+          <el-button type="primary">
+            医护管理<i class="el-icon-arrow-down el-icon--right"></i>
+          </el-button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>
-              <!-- 新增 -->
-              <el-button type="text" @click="dialogFormVisible = true">新增</el-button>
-
-
-            </el-dropdown-item>
-
+            <el-dropdown-item @click.native="dialogFormVisible = true">新增</el-dropdown-item>
             <el-dropdown-item>删除</el-dropdown-item>
+            <el-dropdown-item @click.native="dialogFormVisibleMultiple = true">批量添加</el-dropdown-item>
+
+
           </el-dropdown-menu>
         </el-dropdown>
-        <span>医护管理</span>
         <!-- <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button> -->
 
 
@@ -110,6 +108,21 @@
         <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
       </div>
     </el-dialog>
+    <el-dialog title="批量添加" :visible.sync="dialogFormVisibleMultiple" style="height: auto;">
+      <!-- <addPopupStaff></addPopupStaff> -->
+      <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview"
+        :on-remove="handleRemove" :before-remove="beforeRemove" multiple :limit="3" :on-exceed="handleExceed"
+        :file-list="fileList"
+        align="left">
+        <el-button size="small" type="primary">点击上传</el-button>
+        <div slot="tip" class="el-upload__tip">只能上传sql/csv文件，且不超过500kb</div>
+      </el-upload>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisibleMultiple = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisibleMultiple = false">确 定</el-button>
+      </div>
+    </el-dialog>
+
   </el-container>
 </template>
   
@@ -129,10 +142,22 @@
 import addPopupStaff from './add_popup_staff.vue'
 
 export default {
-  name: 'bgM'
-  , methods: {
+  name: 'bgM',
+  methods: {
     handleClick(row) {
       console.log(row);
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePreview(file) {
+      console.log(file);
+    },
+    handleExceed(files, fileList) {
+      this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+    },
+    beforeRemove(file) {
+      return this.$confirm(`确定移除 ${file.name}？`);
     }
   },
   components: {
@@ -185,8 +210,8 @@ export default {
         name: '王小虎',
         address: '上海市普陀区金沙江路 1518 弄'
       }],
-      dialogTableVisible: false,
       dialogFormVisible: false,
+      dialogFormVisibleMultiple: false,
       form: {
         name: '',
         region: '',
@@ -198,7 +223,9 @@ export default {
         desc: '',
         date: ''
       },
-      formLabelWidth: '150px'
+      formLabelWidth: '150px',
+      fileList: [{ name: 'name1.csv', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100' }, { name: 'name2.csv', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100' }],
+
     }
   }
 };
