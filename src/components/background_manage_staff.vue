@@ -4,48 +4,48 @@
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
       <el-menu :default-openeds="['1', '3']">
         <el-submenu index="1">
-          <template slot="title"><i class="el-icon-message"></i>社区A</template>
+          <template slot="title"><i class="el-icon-message"></i>科室A</template>
           <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
+            <template slot="title">小组1</template>
+            <el-menu-item index="1-1">专家</el-menu-item>
+            <el-menu-item index="1-2">普通</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
+            <el-menu-item index="1-3">专家</el-menu-item>
           </el-menu-item-group>
           <el-submenu index="1-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="1-4-1">选项4-1</el-menu-item>
+            <template slot="title">小组2</template>
+            <el-menu-item index="1-4-1">专家</el-menu-item>
           </el-submenu>
         </el-submenu>
         <el-submenu index="2">
-          <template slot="title"><i class="el-icon-menu"></i>社区B</template>
+          <template slot="title"><i class="el-icon-menu"></i>科室B</template>
           <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
+            <template slot="title">小组1</template>
+            <el-menu-item index="2-1">专家</el-menu-item>
+            <el-menu-item index="2-2">普通</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="分组2">
-            <el-menu-item index="2-3">选项3</el-menu-item>
+            <el-menu-item index="2-3">专家</el-menu-item>
           </el-menu-item-group>
           <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项4-1</el-menu-item>
+            <template slot="title">小组2</template>
+            <el-menu-item index="2-4-1">专家</el-menu-item>
           </el-submenu>
         </el-submenu>
         <el-submenu index="3">
-          <template slot="title"><i class="el-icon-setting"></i>社区C</template>
+          <template slot="title"><i class="el-icon-setting"></i>科室C</template>
           <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="3-1">选项1</el-menu-item>
-            <el-menu-item index="3-2">选项2</el-menu-item>
+            <template slot="title">小组1</template>
+            <el-menu-item index="3-1">专家</el-menu-item>
+            <el-menu-item index="3-2">普通</el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="分组2">
-            <el-menu-item index="3-3">选项3</el-menu-item>
+            <el-menu-item index="3-3">普通</el-menu-item>
           </el-menu-item-group>
           <el-submenu index="3-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="3-4-1">选项4-1</el-menu-item>
+            <template slot="title">小组2</template>
+            <el-menu-item index="3-4-1">普通</el-menu-item>
           </el-submenu>
         </el-submenu>
       </el-menu>
@@ -53,31 +53,25 @@
 
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
-          <el-button type="primary">
-            医护管理<i class="el-icon-arrow-down el-icon--right"></i>
-          </el-button>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item @click.native="dialogFormVisible = true">新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
-            <el-dropdown-item @click.native="dialogFormVisibleMultiple = true">批量添加</el-dropdown-item>
-
-
-          </el-dropdown-menu>
-        </el-dropdown>
-        <!-- <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button> -->
+        <el-button @click.native="dialogFormVisible = true">新增</el-button>
+        <el-button @click.native="dialogFormVisibleMultiple = true">批量添加</el-button>
+        <el-button >批量删除</el-button>
+        <el-button >数据导出</el-button>
 
 
       </el-header>
       <!-- TODO https://developer.aliyun.com/article/978054 根据内容修改样式 -->
       <el-main>
         <el-table :data="tableData" label-width="auto">
-          <el-table-column fixed="left" prop="id" label="编号" width="140">
+          <el-table-column fixed="left" prop="id" label="职工编号" width="140">
           </el-table-column>
           <el-table-column prop="name" label="姓名" width="120">
           </el-table-column>
           <el-table-column prop="gender" label="性别" width="120">
+          </el-table-column>
+          <el-table-column prop="FromDate" label="主科室" width="130">
+          </el-table-column>
+          <el-table-column prop="ToDate" label="其他科室" width="120">
           </el-table-column>
           <el-table-column prop="age" label="年龄" width="120">
           </el-table-column>
@@ -86,10 +80,6 @@
           <el-table-column prop="phone" label="手机号" width="150">
           </el-table-column>
           <el-table-column prop="Status" label="职务" width="120">
-          </el-table-column>
-          <el-table-column prop="FromDate" label="主科室" width="130">
-          </el-table-column>
-          <el-table-column prop="ToDate" label="其他科室">
           </el-table-column>
           <el-table-column fixed="right" label="操作" width="100">
             <template slot-scope="scope">

@@ -94,7 +94,7 @@ nav a.router-link-exact-active {
   }
 } */
 
-.el-col {
+/* .el-col {
   border-radius: 4px;
 }
 
@@ -118,5 +118,5 @@ nav a.router-link-exact-active {
 .row-bg {
   padding: 10px 0;
   background-color: #f9fafc;
-}
+} */
 </style>
