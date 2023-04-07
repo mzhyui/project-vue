@@ -10,37 +10,37 @@
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="名称" prop="id">
+                <el-form-item label="名称" prop="name">
                     <el-input v-model="ruleForm.archiveId"></el-input>
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="状态" prop="id">
+                <el-form-item label="状态" prop="status">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="标题" prop="id">
+                <el-form-item label="标题" prop="title">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="服务项目名称" prop="id">
+                <el-form-item label="服务项目名称" prop="projName">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="服务适用人群" prop="id">
+                <el-form-item label="服务适用人群" prop="projTarget">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="服务内容" prop="id">
+                <el-form-item label="服务内容" prop="proj">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="默认数据" prop="id">
+                <el-form-item label="默认数据" prop="data">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
@@ -50,44 +50,98 @@
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="有效时长" prop="usageMethod">
-                    <el-input v-model="ruleForm.usageMethod"></el-input>
+                <el-form-item label="有效时长" prop="length">
+                    <el-input v-model="ruleForm.length"></el-input>
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="辅助检查" prop="frequency">
-                    <el-input v-model="ruleForm.frequency"></el-input>
+                <el-form-item label="电子公章" prop="sign">
+                    <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/"
+                        :on-preview="handlePreview" :on-remove="handleRemove" :before-remove="beforeRemove" multiple
+                        :limit="3" :on-exceed="handleExceed" :file-list="fileList">
+                        <el-button size="small" type="primary">点击上传</el-button>
+                        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                    </el-upload>
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="尿液检查" prop="startDate">
-                    <el-date-picker v-model="ruleForm.startDate" type="date"></el-date-picker>
+                <el-form-item label="建立时间" required>
+                    <el-col :span="11">
+                        <el-form-item prop="date1">
+                            <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
+                                style="width: 200px;"></el-date-picker>
+                        </el-form-item>
+                    </el-col>
+                </el-form-item>
+            </el-col>
+
+
+        </el-row>
+        <h1>个人签约记录</h1>
+        <hr>
+        <el-row :gutter="15" class="row-bg">
+
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="编号" prop="id">
+                    <el-input v-model="ruleForm.id"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="档案编号" prop="archiveId">
+                    <el-input v-model="ruleForm.archiveId"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="机构ID" prop="orgId">
+                    <el-input v-model="ruleForm.orgId"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="服务包编号" prop="packageId">
+                    <el-input v-model="ruleForm.packageId"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="签约时间" prop="signedTime">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.signedTime"
+                        style="width: 200px;"></el-date-picker>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="服务开始日期" prop="startDate">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.startDate"
+                        style="width: 200px;"></el-date-picker>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="服务结束日期" prop="endDate">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.endDate"
+                        style="width: 200px;"></el-date-picker>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="签约类型" prop="signtype">
+                    <el-select v-model="ruleForm.region" placeholder="请选择签约类型">
+                        <el-option label="个人签约" value="1"></el-option>
+                        <el-option label="家庭签约" value="2"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="签约状态" prop="status">
+                    <el-select v-model="ruleForm.status" placeholder="请选择签约状态">
+                        <el-option label="已签约" value="1"></el-option>
+                        <el-option label="未签约" value="2"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="续约编号" prop="renewalId">
+                    <el-input v-model="ruleForm.renewalId"></el-input>
                 </el-form-item>
             </el-col>
         </el-row>
 
-        <el-form-item label="用药情况" prop="status">
-            <el-date-picker v-model="ruleForm.startDate" type="date"></el-date-picker>
-        </el-form-item>
-        <el-form-item label="健教处方" prop="remark">
-            <el-input v-model="ruleForm.remark"></el-input>
-        </el-form-item>
-        <!-- <el-form-item label="创建时间" required>
-            <el-col :span="11">
-                <el-form-item prop="date1">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
-                        style="width: 200px;"></el-date-picker>
-                </el-form-item>
-            </el-col>
-        </el-form-item>
-        <el-form-item label="更新时间" required>
-            <el-col :span="11">
-                <el-form-item prop="date1">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
-                        style="width: 200px;"></el-date-picker>
-                </el-form-item>
-            </el-col>
-        </el-form-item> -->
 
 
     </el-form>
@@ -157,7 +211,7 @@ export default {
                     { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
                 ],
                 type: [
-                    { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
+                    { type: 'array', required: true, message: '请至少选择一项', trigger: 'change' }
                 ],
                 resource: [
                     { required: true, message: '请选择活动资源', trigger: 'change' }
