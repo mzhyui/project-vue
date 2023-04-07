@@ -73,6 +73,9 @@
     margin-left: 0px !important;
 
 }
+.row-bg.el-row.el-row {
+    background-color: transparent;
+}
 
 /* .el-form-item__label {
     word-break: keep-all !important;
@@ -80,7 +83,7 @@
 
 .el-form-item__content {
     /* margin: 0 !important; */
-    width: 300px;
+    width: auto;
     ;
 }
 

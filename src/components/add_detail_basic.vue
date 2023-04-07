@@ -1,27 +1,26 @@
 <template>
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="150px" class="demo-ruleForm"
+    <!-- todo label position -> center -->
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm"
         :cell-style="{ 'text-align': 'left' }" labelPosition="left">
         <h1>基础数据</h1>
         <hr>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+        <el-row :gutter="5" class="row-bg">
+            <el-col :lg="8" :xs="12">
                 <el-form-item label="编号" prop="id">
                     <el-input v-model="ruleForm.Id"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="8" :xs="12">
                 <el-form-item label="档案编号" prop="id">
                     <el-input v-model="ruleForm.archiveId"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="8" :xs="12">
                 <el-form-item label="基础检查" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="8" :xs="12">
                 <el-form-item label="辅助检查" prop="id">
                     <el-input v-model="ruleForm.id"></el-input>
                 </el-form-item>
@@ -741,7 +740,7 @@
 
 .el-form-item__content {
     /* margin: 0 !important; */
-    width: 300px;
+    width: auto;
     ;
 }
 
