@@ -4,37 +4,43 @@
         :cell-style="{ 'text-align': 'left' }" labelPosition="left">
         <h1>基础数据</h1>
         <hr>
-        <el-row :gutter="5" class="row-bg">
-            <el-col :lg="8" :xs="12">
+        <el-row :gutter="15" class="row-bg">
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="编号" prop="id">
                     <el-input v-model="ruleForm.Id"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col :lg="8" :xs="12">
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="档案编号" prop="id">
                     <el-input v-model="ruleForm.archiveId"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col :lg="8" :xs="12">
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="基础检查" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col :lg="8" :xs="12">
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="辅助检查" prop="id">
                     <el-input v-model="ruleForm.id"></el-input>
                 </el-form-item>
             </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="并发症筛查" prop="id">
+                    <el-input v-model="ruleForm.id"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="诊疗方案" prop="id">
+                    <el-input v-model="ruleForm.id"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="健教处方" prop="id">
+                    <el-input v-model="ruleForm.id"></el-input>
+                </el-form-item>
+            </el-col>
         </el-row>
-        <el-form-item label="并发症筛查" prop="id">
-            <el-input v-model="ruleForm.id"></el-input>
-        </el-form-item>
-        <el-form-item label="诊疗方案" prop="id">
-            <el-input v-model="ruleForm.id"></el-input>
-        </el-form-item>
-        <el-form-item label="健教处方" prop="id">
-            <el-input v-model="ruleForm.id"></el-input>
-        </el-form-item>
         <el-form-item label="创建时间" required>
             <el-col :span="11">
                 <el-form-item prop="date1">
@@ -54,33 +60,53 @@
 
         <h1>基础检查</h1>
         <hr>
-        <el-form-item label="编号" prop="id">
-            <el-input v-model="ruleForm.Id"></el-input>
-        </el-form-item>
-        <el-form-item label="档案编号" prop="id">
-            <el-input v-model="ruleForm.archiveId"></el-input>
-        </el-form-item>
-        <el-form-item label="症状" prop="region">
-            <el-select v-model="ruleForm.region" placeholder="请选择症状">
-                <el-option label="视力模糊" value="shanghai"></el-option>
-                <el-option label="其他" value="beijing"></el-option>
-            </el-select>
-        </el-form-item>
-        <el-form-item label="生活方式" prop="id">
-            <el-input v-model="ruleForm.lifestyle"></el-input>
-        </el-form-item>
-
-        <el-form-item label="体格检查" prop="id">
-            <el-input v-model="ruleForm.physicalExam"></el-input>
-        </el-form-item>
-        <el-form-item label="更新时间" required>
-            <el-col :span="11">
-                <el-form-item prop="date1">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
-                        style="width: 200px;;"></el-date-picker>
+        <el-row>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="编号" prop="id">
+                    <el-input v-model="ruleForm.Id"></el-input>
                 </el-form-item>
             </el-col>
-        </el-form-item>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="档案编号" prop="id">
+                    <el-input v-model="ruleForm.archiveId"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="症状" prop="region">
+                    <el-checkbox-group v-model="ruleForm.region" placeholder="请选择症状">
+                        <el-checkbox label="视力模糊" value="sight"></el-checkbox>
+                        <el-checkbox label="感染" value="infection"></el-checkbox>
+                        <el-checkbox label="咳嗽" value="cough"></el-checkbox>
+                        <el-checkbox label="呼吸困难" value="breath"></el-checkbox>
+                        <el-checkbox label="胸闷" value="chest"></el-checkbox>
+                        <el-checkbox label="疲劳" value="fatigue"></el-checkbox>
+                        <el-checkbox label="其他" value="other"></el-checkbox>
+
+                    </el-checkbox-group>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="生活方式" prop="id">
+                    <el-input v-model="ruleForm.lifestyle"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="体格检查" prop="id">
+                    <el-input v-model="ruleForm.physicalExam"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :lg="12" :xs="12">
+                <el-form-item label="更新时间" required>
+                    <el-col :span="11">
+                        <el-form-item prop="date1">
+                            <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
+                                style="width: 200px;;"></el-date-picker>
+                        </el-form-item>
+                    </el-col>
+                </el-form-item>
+            </el-col>
+        </el-row>
+
 
 
         <h1>生活方式</h1>
@@ -95,20 +121,20 @@
             <el-switch v-model="ruleForm.smoke"></el-switch>
         </el-form-item>
         <el-form-item label="吸烟年限" prop="smokeyaer">
-            <el-input v-model="ruleForm.smokeYear"></el-input>
+            <el-input :disabled="isSmokeYearDisabled" v-model="ruleForm.smokeYear"></el-input>
         </el-form-item>
         <el-form-item label="每日吸烟量" prop="smokeaount">
-            <el-input v-model="ruleForm.smokeAmount"></el-input>
+            <el-input :disabled="isSmokeYearDisabled" v-model="ruleForm.smokeAmount"></el-input>
         </el-form-item>
 
         <el-form-item label="饮酒史" prop="drink">
             <el-switch v-model="ruleForm.drink"></el-switch>
         </el-form-item>
         <el-form-item label="饮酒年限" prop="drinkyear">
-            <el-input v-model="ruleForm.drinkYear"></el-input>
+            <el-input :disabled="isDrinkDisabled" v-model="ruleForm.drinkYear"></el-input>
         </el-form-item>
         <el-form-item label="每日饮酒量" prop="drinkamount">
-            <el-input v-model="ruleForm.drinkAmount"></el-input>
+            <el-input :disabled="isDrinkDisabled" v-model="ruleForm.drinkAmount"></el-input>
         </el-form-item>
         <el-form-item label="饮食习惯" prop="diet">
             <el-select v-model="ruleForm.diet" placeholder="请选择">
@@ -765,6 +791,14 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 export default {
     name: 'addDetailBasic',
+    computed: {
+        isSmokeYearDisabled() {
+            return this.ruleForm.smoke === false;
+        },
+        isDrinkDisabled() {
+            return this.ruleForm.drink === false;
+        }
+    },
     data() {
         return {
             ruleForm: {
@@ -775,7 +809,9 @@ export default {
                 delivery: false,
                 type: [],
                 resource: '',
-                desc: ''
+                desc: '',
+                smoke: false,
+                drink: false
             },
             rules: {
                 name: [

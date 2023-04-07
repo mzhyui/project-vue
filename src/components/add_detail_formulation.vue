@@ -1,75 +1,65 @@
 <template>
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="150px" class="demo-ruleForm"
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm"
         :cell-style="{ 'text-align': 'left' }" labelPosition="left">
         <h1>用药记录</h1>
         <hr>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+        <el-row :gutter="15" class="row-bg">
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="编号" prop="id">
                     <el-input v-model="ruleForm.Id"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="档案编号" prop="id">
                     <el-input v-model="ruleForm.archiveId"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="服务编号" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="序号" prop="id">
                     <el-input v-model="ruleForm.id"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="药品编码" prop="drugCode">
                     <el-input v-model="ruleForm.drugCode"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="药品名称" prop="drugName">
                     <el-input v-model="ruleForm.drugName"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="药品规格" prop="drugSpecification">
                     <el-input v-model="ruleForm.drugSpecification"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="使用数量" prop="usageQuantity">
                     <el-input v-model="ruleForm.usageQuantity"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="用量单位" prop="usageUnit">
                     <el-input v-model="ruleForm.usageUnit"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="用法" prop="usageMethod">
                     <el-input v-model="ruleForm.usageMethod"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="频率" prop="frequency">
                     <el-input v-model="ruleForm.frequency"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="开始用药时间" prop="startDate">
                     <el-date-picker v-model="ruleForm.startDate" type="date"></el-date-picker>
                 </el-form-item>
@@ -129,8 +119,13 @@
                 </el-form-item>
             </el-col>
         </el-form-item>
-        <el-form-item label="填表人签名" prop="id">
-            <el-input v-model="ruleForm.physicalExam"></el-input>
+        <el-form-item label="填表人签名" prop="id" required>
+            <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview"
+                :on-remove="handleRemove" :before-remove="beforeRemove" multiple :limit="3" :on-exceed="handleExceed"
+                :file-list="fileList">
+                <el-button size="small" type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+            </el-upload>
         </el-form-item>
         <el-form-item label="责任医生" prop="id">
             <el-input v-model="ruleForm.physicalExam"></el-input>
@@ -140,7 +135,7 @@
     </el-form>
 </template>
 
-<style>
+<style scoped>
 .el-form-item__label-wrap {
     margin-left: 0px !important;
 
@@ -152,7 +147,7 @@
 
 .el-form-item__content {
     /* margin: 0 !important; */
-    width: 300px;
+    width: auto;
     ;
 }
 
@@ -212,7 +207,14 @@ export default {
                 desc: [
                     { required: true, message: '请填写活动形式', trigger: 'blur' }
                 ]
-            }
+            },
+            fileList: [{
+                name: 'sig.jpeg',
+                url: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
+            }, {
+                name: 'sig2.jpeg',
+                url: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
+            }]
         };
     }
 }

@@ -1,75 +1,65 @@
 <template>
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="150px" class="demo-ruleForm"
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm"
         :cell-style="{ 'text-align': 'left' }" labelPosition="left">
         <h1>签约记录</h1>
         <hr>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+        <el-row :gutter="15" class="row-bg">
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="编号" prop="id">
                     <el-input v-model="ruleForm.Id"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="名称" prop="id">
                     <el-input v-model="ruleForm.archiveId"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="状态" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="标题" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="服务项目名称" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="服务适用人群" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="服务内容" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="默认数据" prop="id">
                     <el-input v-model="ruleForm.basicCheck"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="基础套餐金额" prop="usageUnit">
                     <el-input v-model="ruleForm.usageUnit"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="有效时长" prop="usageMethod">
                     <el-input v-model="ruleForm.usageMethod"></el-input>
                 </el-form-item>
             </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="辅助检查" prop="frequency">
                     <el-input v-model="ruleForm.frequency"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col>
+            <el-col :lg="12" :xs="12">
                 <el-form-item label="尿液检查" prop="startDate">
                     <el-date-picker v-model="ruleForm.startDate" type="date"></el-date-picker>
                 </el-form-item>
@@ -98,110 +88,6 @@
                 </el-form-item>
             </el-col>
         </el-form-item> -->
-
-        <h1>电话随访</h1>
-        <hr>
-        <el-row type="flex" class="row-bg">
-            <el-col>
-                <el-form-item label="编号" prop="id">
-                    <el-input v-model="ruleForm.Id"></el-input>
-                </el-form-item>
-            </el-col>
-            <el-col>
-                <el-form-item label="档案编号" prop="id">
-                    <el-input v-model="ruleForm.archiveId"></el-input>
-                </el-form-item>
-            </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
-                <el-form-item label="随访医生编号" prop="id">
-                    <el-input v-model="ruleForm.basicCheck"></el-input>
-                </el-form-item>
-            </el-col>
-            <el-col>
-                <el-form-item label="随访日期" prop="id">
-                    <el-col :span="11">
-                        <el-form-item prop="date1">
-                            <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
-                                style="width: 200px;;"></el-date-picker>
-                        </el-form-item>
-                    </el-col>
-                </el-form-item>
-            </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
-                <el-form-item label="下次随访日期" prop="drugCode">
-                    <el-col :span="11">
-                        <el-form-item prop="date1">
-                            <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
-                                style="width: 200px;;"></el-date-picker>
-                        </el-form-item>
-                    </el-col>
-                </el-form-item>
-            </el-col>
-            <el-col>
-                <el-form-item label="随访签名" prop="drugName">
-                    <!-- <el-input v-model="ruleForm.drugName"></el-input> -->
-                    <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/"
-                        :on-preview="handlePreview" :on-remove="handleRemove" :before-remove="beforeRemove" multiple
-                        :limit="3" :on-exceed="handleExceed" :file-list="fileList">
-                        <el-button size="small" type="primary">点击上传</el-button>
-                        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-                    </el-upload>
-                </el-form-item>
-            </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
-                <el-form-item label="不良症状" prop="drugSpecification">
-                    <el-checkbox-group v-model="ruleForm.type">
-                        <el-checkbox label="多饮" value="多饮"></el-checkbox>
-                        <el-checkbox label="多食" value="多食"></el-checkbox>
-                        <el-checkbox label="头疼" value="头疼"></el-checkbox>
-                        <el-checkbox label="不适" value="不适"></el-checkbox>
-                        <el-checkbox label="无" value="无"></el-checkbox>
-                    </el-checkbox-group>
-                </el-form-item>
-            </el-col>
-            <el-col>
-                <el-form-item label="使用数量" prop="usageQuantity">
-                    <el-input v-model="ruleForm.usageQuantity"></el-input>
-                </el-form-item>
-            </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
-                <el-form-item label="体格检查" prop="usageUnit">
-                    <el-input v-model="ruleForm.usageUnit"></el-input>
-                </el-form-item>
-            </el-col>
-            <el-col>
-                <el-form-item label="生活方式" prop="usageMethod">
-                    <el-input v-model="ruleForm.usageMethod"></el-input>
-                </el-form-item>
-            </el-col>
-        </el-row>
-        <el-row type="flex" class="row-bg">
-            <el-col>
-                <el-form-item label="辅助检查" prop="frequency">
-                    <el-input v-model="ruleForm.frequency"></el-input>
-                </el-form-item>
-            </el-col>
-            <el-col>
-                <el-form-item label="尿液检查" prop="startDate">
-                    <el-date-picker v-model="ruleForm.startDate" type="date"></el-date-picker>
-                </el-form-item>
-            </el-col>
-        </el-row>
-
-        <el-form-item label="用药情况" prop="status">
-            <el-date-picker v-model="ruleForm.startDate" type="date"></el-date-picker>
-        </el-form-item>
-        <el-form-item label="健教处方" prop="remark">
-            <el-input v-model="ruleForm.remark"></el-input>
-        </el-form-item>
 
 
     </el-form>
