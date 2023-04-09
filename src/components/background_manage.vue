@@ -1,7 +1,7 @@
 
 <template>
-  <el-container style="height: 80%; border: 1px solid #eee">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246); height: fit-content;">
+  <el-container style="height: 850px; border: 1px solid #eee">
+    <el-aside width="200px" style="background-color: rgb(238, 241, 246);">
       <el-menu :default-openeds="['1', '3']">
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>社区A</template>
@@ -84,7 +84,7 @@
       </el-header>
       <!-- TODO https://developer.aliyun.com/article/978054 根据内容修改样式 -->
       <el-main>
-        <el-table :data="tableData" label-width="auto">
+        <el-table :data="tableData" label-width="auto" height="700">
           <el-table-column fixed="left" prop="id" label="档案编号" width="140">
           </el-table-column>
           <el-table-column prop="issue" label="病种" width="140">
@@ -202,7 +202,7 @@ export default {
       , ToDate: '2022'
     };
     return {
-      tableData: Array(5).fill(item1).concat(Array(5).fill(item2)),
+      tableData: Array(5).fill(item1).concat(Array(5).fill(item2)).concat(Array(5).fill(item1)),
       gridData: [{
         date: '2016-05-02',
         name: '王小虎',

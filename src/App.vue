@@ -3,52 +3,41 @@
     <div>
       <div style="margin-top: 20px; height: auto;">
         <el-collapse-transition>
-          <div v-show="show3">
-            <nav>
-              <!-- <router-link to="/manage">Manage</router-link> |
-      <router-link to="/manageStaff">ManageStaff</router-link> |
-      <router-link to="/add">Add</router-link> |
-      <router-link to="/form">Form</router-link> -->
-              <el-row :gutter="20" style="height: 20px;">
-                <el-col :span="6">
-                  <div class="grid-content bg-purple">
-                    <router-link to="/manage" style="font-size: x-large;">患者管理</router-link>
-                  </div>
-                </el-col>
-                <el-col :span="6">
-                  <div class="grid-content bg-purple">
-                    <router-link to="/manageStaff" style="font-size: x-large;">医护管理</router-link>
-                  </div>
-                </el-col>
-                <el-col :span="6">
-                  <div class="grid-content bg-purple"><router-link to="/add"
-                      style="font-size: x-large;">添加档案</router-link></div>
-                </el-col>
-                <el-col :span="6">
-                  <div class="grid-content bg-purple"><router-link to="/form"
-                      style="font-size: x-large;">数据视图</router-link></div>
-                </el-col>
-              </el-row>
-            </nav>
+          <div v-show="show">
+            <navBar></navBar>
           </div>
         </el-collapse-transition>
       </div>
     </div>
 
     <router-view />
-    <el-button @click="show3 = !show3">切换导航栏</el-button>
+    <el-button @click="show = !show">切换导航栏</el-button>
     <el-button><router-link to="/login">返回登录页</router-link></el-button>
     <!-- <el-button>
       <router-link to="/manageStaff" style="font-size: x-large;">医护管理</router-link>
     </el-button> -->
   </div>
-  
 </template>
 <script>
+// import Vue from 'vue'
+import navBar from '@/components/nav.vue';
+// import { MessageBox } from 'element-ui'
+
+// Vue.component(Message.name, Message)
+// Vue.prototype.$message = Message
+
 export default {
   data: () => ({
-    show3: true
-  })
+    show: true
+  }),
+  mounted() {
+    // MessageBox.alert('仓库地址https://gitee.com/mzhyui/project-vue', '测试版本23-4-9', {
+    //   confirmButtonText: 'OK'
+    // });
+  },
+  components:{
+    'navBar' : navBar
+  }
 }
 </script>
 <style scoped>
@@ -57,15 +46,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 10px;
-}
-
-nav a {
-  font-weight: bold;
   color: #2c3e50;
 }
 
