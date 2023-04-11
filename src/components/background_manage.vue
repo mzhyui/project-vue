@@ -2,7 +2,7 @@
 <template>
   <el-container style="height: 850px; border: 1px solid #eee">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246);">
-      <el-menu :default-openeds="['1', '3']">
+      <el-menu :default-openeds="['1',]">
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>社区A</template>
           <el-menu-item-group>
@@ -60,7 +60,7 @@
         </el-dropdown>
             <span>患者管理</span> -->
         <!-- <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button> -->
-        <el-button @click.native="dialogFormVisible = true">新增</el-button>
+        <el-button @click.native="dialogFormVisible = true">新增患者档案</el-button>
         <el-button @click.native="dialogFormVisibleMultiple = true">批量添加</el-button>
         <el-button >批量删除</el-button>
         <el-button >数据导出</el-button>

@@ -23,6 +23,7 @@ import LoginComponents from '@/components/login_page.vue'
 
 
 export default {
+  show: false,
   name: 'HomeView',
   mounted() {
     const h = this.$createElement;

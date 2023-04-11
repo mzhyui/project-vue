@@ -19,10 +19,12 @@
                 <el-input type="password" placeholder="请输入密码" v-model="form.password"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="submitForm('form')">登录</el-button>
+                <!-- <el-button type="primary" @click="submitForm('form')">登录</el-button> -->
+                <el-button><router-link to="/manage">登录</router-link></el-button>
+
             </el-form-item>
         </el-form>
-        <!-- <el-form ref="form" :model="form" :rules="rules" class="login-box">
+    <!-- <el-form ref="form" :model="form" :rules="rules" class="login-box">
             <h3 class="login-title">欢迎登录</h3>
             <el-form-item label="账号类型" prop="class">
                 <el-select v-model="form.class" placeholder="请选择账号类型">
@@ -40,7 +42,7 @@
             <el-form-item>
                 <el-button type="primary" @click="submitForm('form')">登录</el-button>
             </el-form-item>
-        </el-form> -->
+            </el-form> -->
     </div>
 </template>
   
@@ -82,6 +84,10 @@ export default {
                     return false;
                 }
             });
+        },
+        selectItem(Id) {
+            // update the route's query parameter with the selected item ID
+            this.$router.replace({ query: { characterType: Id } });
         }
     }
 }
@@ -104,8 +110,10 @@ export default {
 .login-title {
     text-align: center;
 }
+
 .container {
-  position: relative; /* make the container a positioned element */
+    position: relative;
+    /* make the container a positioned element */
 }
 
 .img {
@@ -115,20 +123,26 @@ export default {
     width: 30vw;
     min-height: 500px;
 }
+
 .component-b {
-  position: relative; /* make Component B a positioned element */
-  z-index: 1; /* set Component B's z-index to 1 */
-  top: 30px;
-//   padding-left: 30vw;
-  margin-left: 45vw;
+    position: relative;
+    /* make Component B a positioned element */
+    z-index: 1;
+    /* set Component B's z-index to 1 */
+    top: 30px;
+    //   padding-left: 30vw;
+    margin-left: 45vw;
 }
 
 .component-a {
-  position: absolute; /* position Component A absolutely */
-  top: 0; /* position Component A at the top of the container */
-  left: 0; /* position Component A at the left of the container */
-  z-index: 2; /* set Component A's z-index to 2 to make it appear on top of Component B */
-  margin-left: 16vw;
+    position: absolute;
+    /* position Component A absolutely */
+    top: 0;
+    /* position Component A at the top of the container */
+    left: 0;
+    /* position Component A at the left of the container */
+    z-index: 2;
+    /* set Component A's z-index to 2 to make it appear on top of Component B */
+    margin-left: 16vw;
 
-}
-</style>
+}</style>

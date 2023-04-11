@@ -1,6 +1,6 @@
 <template>
-    <el-container style="height: 80vh;">
-        <el-header style="background-color: lightgray;">
+    <el-container style="height: 850px;">
+        <!-- <el-header style="background-color: lightgray;">
             <el-menu default-active="2" class="el-menu-demo" mode="horizontal" @select="handleSelect"
                 background-color="lightgray" text-color="black" active-text-color="#0fd04b">
                 <el-menu-item index="1">科室设置</el-menu-item>
@@ -11,10 +11,20 @@
                     <el-menu-item index="3-2">人员统计</el-menu-item>
                 </el-submenu>
             </el-menu>
-        </el-header>
+        </el-header> -->
         <el-container>
-            <el-aside width="150px" height="auto" style="background-color: lightgray; align-items: start;">
-                <el-menu default-active="1" class="el-menu-vertical-demo" background-color="lightgray" text-color="black"
+            <el-aside width="200px" height="auto" style="background-color: lightgray; align-items: start;">
+                <el-menu default-active="2" class="el-menu-demo" mode="vertical" @select="handleSelect"
+                background-color="lightgray" text-color="black" active-text-color="#0fd04b">
+                <el-menu-item index="1">科室设置</el-menu-item>
+                <el-menu-item index="2">数据概览</el-menu-item>
+                <el-submenu index="3">
+                    <template #title>职员数据</template>
+                    <el-menu-item index="3-1">医护管理</el-menu-item>
+                    <el-menu-item index="3-2">人员统计</el-menu-item>
+                </el-submenu>
+            </el-menu>
+                <!-- <el-menu default-active="1" class="el-menu-vertical-demo" background-color="lightgray" text-color="black"
                     active-text-color="#0fd04b">
                     <el-submenu index="1">
                         <template #title>
@@ -32,7 +42,7 @@
                         <el-menu-item index="2-1">随访记录</el-menu-item>
                         <el-menu-item index="2-2">随访统计</el-menu-item>
                     </el-submenu>
-                </el-menu>
+                </el-menu> -->
             </el-aside>
             <el-main>
                 <el-row :gutter="20">
@@ -95,6 +105,7 @@
                     </el-col>
                 </el-row>
             </el-main>
+            <!-- <el-footer></el-footer> -->
         </el-container>
     </el-container>
 </template>
