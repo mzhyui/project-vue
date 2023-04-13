@@ -76,8 +76,7 @@ export default {
     data() {
         return {
             activeIndex: '/manage',
-            username: 'admin',
-            characterType: '用户'
+            characterType: null,
         }
     },
     methods: {
@@ -88,6 +87,11 @@ export default {
     mounted() {
         // this.username = this.$store.state.username
         this.characterType = this.$route.query.characterType || '用户';
+    },
+    computed: {
+        // username() {
+        //     return this.$store.state.characterType;
+        // }
     }
 }
 

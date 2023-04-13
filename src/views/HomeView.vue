@@ -28,7 +28,7 @@ export default {
   mounted() {
     const h = this.$createElement;
     this.$msgbox({
-      title: '测试版本23-4-9',
+      title: '测试版本23-4-13',
       message: h('p', null, [
         h('span', null, '仓库地址 '),
         h('a', { attrs: { href: 'https://gitee.com/mzhyui/project-vue', target: '_blank' } }, 'https://gitee.com/mzhyui/project-vue')

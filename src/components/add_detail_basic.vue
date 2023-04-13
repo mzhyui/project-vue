@@ -838,6 +838,6 @@ export default {
                 ]
             }
         };
-    }
+    },
 }
 </script>
