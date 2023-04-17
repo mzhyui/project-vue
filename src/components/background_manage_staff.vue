@@ -55,7 +55,9 @@
       <el-header style="text-align: right; font-size: 12px">
         <el-button @click.native="dialogFormVisible = true">新增</el-button>
         <el-button @click.native="dialogFormVisibleMultiple = true">批量添加</el-button>
-        <el-button >批量删除</el-button>
+        <el-button @click.native="dialogFormVisibleDelete = true">批量删除</el-button>
+
+        <!-- <el-button >批量删除</el-button> -->
         <el-button >数据导出</el-button>
 
 
@@ -112,6 +114,13 @@
         <el-button type="primary" @click="dialogFormVisibleMultiple = false">确 定</el-button>
       </div>
     </el-dialog>
+    <el-dialog title="批量删除" :visible.sync="dialogFormVisibleDelete" style="height: auto;">
+      <addPopupDelete></addPopupDelete>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisibleDelete = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisibleDelete = false">确 定</el-button>
+      </div>
+    </el-dialog>
 
   </el-container>
 </template>
@@ -130,6 +139,8 @@
   
 <script>
 import addPopupStaff from './add_popup_staff.vue'
+import addPopupDelete from './add_popup_delete.vue'
+
 
 export default {
   name: 'bgM',
@@ -151,7 +162,8 @@ export default {
     }
   },
   components: {
-    'addPopupStaff': addPopupStaff
+    'addPopupStaff': addPopupStaff,
+    'addPopupDelete': addPopupDelete
   }
   , data() {
     const item1 = {
@@ -181,6 +193,34 @@ export default {
       , gender: '男'
 
     };
+    // const item3 = {
+    //   id: '4147',
+    //   issue: 'B',
+    //   name: '王大虎',
+    //   address: '上海市普陀区金沙江路 1518 弄'
+    //   , age: '42'
+    //   , IdCard: '320582xx'
+    //   , phone: '138xxx'
+    //   , Status: '普通'
+    //   , FromDate: 'A'
+    //   , ToDate: 'B'
+    //   , gender: '男'
+
+    // };
+    // const item4 = {
+    //   id: '4148',
+    //   issue: 'B',
+    //   name: '王大虎',
+    //   address: '上海市普陀区金沙江路 1518 弄'
+    //   , age: '42'
+    //   , IdCard: '320582xx'
+    //   , phone: '138xxx'
+    //   , Status: '普通'
+    //   , FromDate: 'A'
+    //   , ToDate: 'B'
+    //   , gender: '男'
+
+    // };
     return {
       tableData: Array(5).fill(item1).concat(Array(5).fill(item2)),
       gridData: [{
@@ -202,6 +242,7 @@ export default {
       }],
       dialogFormVisible: false,
       dialogFormVisibleMultiple: false,
+      dialogFormVisibleDelete: false,
       form: {
         name: '',
         region: '',
