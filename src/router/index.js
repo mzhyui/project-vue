@@ -6,6 +6,7 @@ import bgMs from '../components/background_manage_staff.vue'
 
 import addD from '../views/add_detail.vue'
 import FormView from '../views/formView.vue'
+import MyView from '../views/MyView.vue'
 
 import loginComponents from '@/components/login_page.vue'
 
@@ -50,6 +51,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: MyView
   }
 ]
 

@@ -22,8 +22,8 @@
         </el-row> -->
         <el-row :gutter="10" style="margin: 0;" type="flex">
             <el-col :span="20">
-                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
-                    <el-menu-item index="/login">首页</el-menu-item>
+                <el-menu class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
+                    <el-menu-item index="/my">个人首页</el-menu-item>
                     <el-menu-item index="/manage">
                         患者管理
                     </el-menu-item>
@@ -35,12 +35,12 @@
                 </el-menu></el-col>
             <el-col :span="4" style="display: flex; justify-content: center; align-items: center;">
                 <div style="display: flex; justify-content: center; align-items: center;">
-                    <el-dropdown>
+                    <el-dropdown @command="handleCommand">
                         <span class="el-dropdown-link">
                             欢迎访问， {{ characterType }} <i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>个人信息</el-dropdown-item>
+                            <el-dropdown-item command="/my">个人信息</el-dropdown-item>
                             <el-dropdown-item>修改密码</el-dropdown-item>
                             <el-dropdown-item>退出登录</el-dropdown-item>
                         </el-dropdown-menu>
@@ -82,7 +82,11 @@ export default {
     methods: {
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
+        },
+        handleCommand(command) {
+            this.$router.push(command)
         }
+
     },
     mounted() {
         // this.username = this.$store.state.username

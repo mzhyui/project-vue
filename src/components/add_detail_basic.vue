@@ -72,8 +72,8 @@
                 </el-form-item>
             </el-col>
             <el-col :lg="12" :xs="12">
-                <el-form-item label="症状" prop="region">
-                    <el-checkbox-group v-model="ruleForm.region" placeholder="请选择症状">
+                <el-form-item label="症状" prop="status">
+                    <el-checkbox-group v-model="ruleForm.status" placeholder="请选择症状">
                         <el-checkbox label="视力模糊" value="sight"></el-checkbox>
                         <el-checkbox label="感染" value="infection"></el-checkbox>
                         <el-checkbox label="咳嗽" value="cough"></el-checkbox>
@@ -811,7 +811,8 @@ export default {
                 resource: '',
                 desc: '',
                 smoke: false,
-                drink: false
+                drink: false,
+                status: []
             },
             rules: {
                 name: [
@@ -835,6 +836,9 @@ export default {
                 ],
                 desc: [
                     { required: true, message: '请填写活动形式', trigger: 'blur' }
+                ],
+                status: [
+                    { type: 'array', required: false, trigger: 'change' }
                 ]
             }
         };
