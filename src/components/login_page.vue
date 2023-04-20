@@ -20,7 +20,9 @@
             </el-form-item>
             <el-form-item>
                 <!-- <el-button type="primary" @click="submitForm('form')">登录</el-button> -->
-                <el-button><router-link to="/manage">登录</router-link></el-button>
+                <!-- <el-button><router-link to="/my">登录</router-link></el-button> -->
+                <el-button @click="$router.push('/my')">登录</el-button>
+
 
             </el-form-item>
         </el-form>

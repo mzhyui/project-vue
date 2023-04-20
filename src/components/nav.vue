@@ -75,7 +75,7 @@ export default {
     name: 'navBar',
     data() {
         return {
-            activeIndex: '/manage',
+            activeIndex: '/my',
             characterType: null,
         }
     },

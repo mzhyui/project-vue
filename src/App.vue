@@ -37,7 +37,9 @@
     <router-view />
     <!-- <el-button @click="show = !show">切换导航栏</el-button> -->
     <!-- <el-button @click="isCollapse = !isCollapse">{{ isCollapse ? 'Collapse' : 'Expand' }}</el-button> -->
-    <el-button v-show="shouldShowDiv"><router-link to="/">返回登录页</router-link></el-button>
+    <!-- <el-button v-show="shouldShowDiv"><router-link to="/">返回登录页</router-link></el-button> -->
+    <el-button v-show="shouldShowDiv" @click="$router.push('/')">返回登录页</el-button>
+
     <!-- <el-button>
       <router-link to="/manageStaff" style="font-size: x-large;">医护管理</router-link>
     </el-button> -->

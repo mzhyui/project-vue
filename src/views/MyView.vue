@@ -50,8 +50,8 @@
                     <el-col :span="12">
                         <div class="block"><el-avatar shape="square" :size="100" :src="squareUrl"></el-avatar></div>
                         <!-- <el-skeleton :rows="2" /> -->
-                        <p>用户名：</p>
-                        <p>邮箱：</p>
+                        <p>用户名：{{ personalInfo.username }}</p>
+                        <p>邮箱：{{ personalInfo.email }}</p>
                         <el-row :gutter="20">
                             <el-col :span="12">
                                 <div class="block">
@@ -66,7 +66,7 @@
                             </el-col>
                             <el-col :span="12">
                                 <el-carousel height="200px">
-                                    <el-carousel-item v-for="item in 4" :key="item">
+                                    <el-carousel-item v-for="item in 3" :key="item">
                                         <h3 class="small">{{ item }}</h3>
                                     </el-carousel-item>
                                 </el-carousel>
@@ -170,6 +170,10 @@ export default ({
                 size: 'large'
             },],
             value: new Date(),
+            personalInfo: {
+                username: '医护人员',
+                email: 'example@company.com'
+            }
         };
     }
 });
@@ -216,7 +220,7 @@ export default ({
 }
 
 .el-timeline {
-    padding-left: 20%;
+    padding-left: 0%;
 }
 .text {
     font-size: 14px;
@@ -236,7 +240,7 @@ export default ({
   }
 
   .box-card {
-    width: 480px;
+    width: auto;
     text-align: left;
   }
 </style>

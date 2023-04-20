@@ -28,94 +28,94 @@
     <el-tabs type="border-card">
       <el-tab-pane label="基本信息">
         <el-form-item label="档案编号" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.id" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="姓名" :label-width="formLabelWidth">
           <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="性别" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择性别">
-            <el-option label="男" value="shanghai"></el-option>
-            <el-option label="女" value="beijing"></el-option>
+          <el-select v-model="form.gender" placeholder="请选择性别">
+            <el-option label="男" value="male"></el-option>
+            <el-option label="女" value="female"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="民族" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择婚姻状况">
-            <el-option label="汉族" value="shanghai"></el-option>
-            <el-option label="其他" value="beijing"></el-option>
+          <el-select v-model="form.race" placeholder="请选择婚姻状况">
+            <el-option label="汉族" value="han"></el-option>
+            <el-option label="其他" value="other"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="文化程度" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择婚姻状况">
-            <el-option label="研究生" value="shanghai"></el-option>
-            <el-option label="其他" value="beijing"></el-option>
+          <el-select v-model="form.degree" placeholder="请选择婚姻状况">
+            <el-option label="研究生" value="master"></el-option>
+            <el-option label="其他" value="other"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="婚姻状况" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择婚姻状况">
-            <el-option label="已婚" value="shanghai"></el-option>
-            <el-option label="未婚" value="beijing"></el-option>
+          <el-select v-model="form.marriage" placeholder="请选择婚姻状况">
+            <el-option label="已婚" value="yes"></el-option>
+            <el-option label="未婚" value="no"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="证件类型" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择证件类型">
-            <el-option label="身份证" value="shanghai"></el-option>
-            <el-option label="护照" value="beijing"></el-option>
+          <el-select v-model="form.idType" placeholder="请选择证件类型">
+            <el-option label="身份证" value="id"></el-option>
+            <el-option label="护照" value="passport"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="证件号码" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.identityCardId" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="职业" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择职业">
-            <el-option label="学生" value="shanghai"></el-option>
-            <el-option label="其他" value="beijing"></el-option>
+          <el-select v-model="form.career" placeholder="请选择职业">
+            <el-option label="学生" value="student"></el-option>
+            <el-option label="其他" value="others"></el-option>
           </el-select>
         </el-form-item>
 
       </el-tab-pane>
       <el-tab-pane label="详细信息">
         <el-form-item label="出生日期" :label-width="formLabelWidth">
-          <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
+          <el-date-picker v-model="form.birthdate" type="date" placeholder="选择日期">
           </el-date-picker>
         </el-form-item>
         <el-form-item label="籍贯" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.birthplace" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="户籍地址" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.residentplace" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="现居住地址" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.livingplace" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="联系电话" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.phone" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="医疗费用支付途径" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择医疗费用支付途径">
-            <el-option label="城镇职工基本医疗保险" value="shanghai"></el-option>
-            <el-option label="其他" value="beijing"></el-option>
+          <el-select v-model="form.payment" placeholder="请选择医疗费用支付途径">
+            <el-option label="城镇职工基本医疗保险" value="ensurance"></el-option>
+            <el-option label="其他" value="other"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="abo血型" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择abo血型">
-            <el-option label="A" value="shanghai"></el-option>
-            <el-option label="B" value="beijing"></el-option>
-            <el-option label="AB" value="beijing"></el-option>
-            <el-option label="O" value="beijing"></el-option>
+          <el-select v-model="form.bloodtype" placeholder="请选择abo血型">
+            <el-option label="A" value="A"></el-option>
+            <el-option label="B" value="B"></el-option>
+            <el-option label="AB" value="AB"></el-option>
+            <el-option label="O" value="O"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="rh血型" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择rh血型">
-            <el-option label="阴性" value="shanghai"></el-option>
-            <el-option label="阳性" value="beijing"></el-option>
+          <el-select v-model="form.bloodrh" placeholder="请选择rh血型">
+            <el-option label="阴性" value="n"></el-option>
+            <el-option label="阳性" value="p"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="建档单位" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.documentplace" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="建档日期" :label-width="formLabelWidth">
-          <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
+          <el-date-picker v-model="form.documentdate" type="date" placeholder="选择日期">
           </el-date-picker>
         </el-form-item>
 
@@ -128,10 +128,10 @@
       </el-tab-pane>
       <el-tab-pane label="既往史">
         <el-form-item label="档案编号" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.idhistory" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="药物过敏史" :label-width="formLabelWidth">
-          <el-checkbox-group v-model="form.type">
+          <el-checkbox-group v-model="form.history">
             <el-checkbox label="青霉素" value="青霉素"></el-checkbox>
             <el-checkbox label="黄胺" value="黄胺"></el-checkbox>
             <el-checkbox label="头孢类" value="头孢类"></el-checkbox>
@@ -140,7 +140,7 @@
           </el-checkbox-group>
         </el-form-item>
         <el-form-item label="暴露史" :label-width="formLabelWidth">
-          <el-checkbox-group v-model="form.type">
+          <el-checkbox-group v-model="form.exposehistory">
             <el-checkbox label="化学" value="化学"></el-checkbox>
             <el-checkbox label="放射" value="放射"></el-checkbox>
             <el-checkbox label="毒性" value="毒性"></el-checkbox>
@@ -190,7 +190,7 @@
       </el-tab-pane>
       <el-tab-pane label="高危人群">
         <el-form-item label="档案编号" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.riskid" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="高危疾病" :label-width="formLabelWidth">
           <el-checkbox-group v-model="form.high_risk_disease">
@@ -202,17 +202,18 @@
         </el-form-item>
 
         <el-form-item label="危险因素" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择危险因素">
+          <el-select v-model="form.resource" placeholder="请选择危险因素">
             <el-option label="妊娠期妇女" value="妊娠期妇女"></el-option>
           </el-select>
         </el-form-item>
       </el-tab-pane>
+      <!-- todo 动态增减input， 如有心脏病则增加心脏病确证日期 -->
       <el-tab-pane label="慢病人群">
         <el-form-item label="档案编号" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.chronicid" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="慢性疾病" :label-width="formLabelWidth">
-          <el-checkbox-group v-model="form.region" placeholder="请选择慢性疾病">
+          <el-checkbox-group v-model="form.chroniccondition" placeholder="请选择慢性疾病">
             <el-checkbox label="支气管炎" value="支气管炎"></el-checkbox>
             <el-checkbox label="高血压" value="高血压"></el-checkbox>
             <el-checkbox label="糖尿病" value="糖尿病"></el-checkbox>
@@ -226,38 +227,35 @@
           </el-checkbox-group>
         </el-form-item>
         <el-form-item label="确诊日期" :label-width="formLabelWidth">
-          <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
+          <el-date-picker v-model="form.chronicdate" type="date" placeholder="选择日期">
           </el-date-picker>
         </el-form-item>
       </el-tab-pane>
       <el-tab-pane label="附件记录">
-        <el-form-item label="编号" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
         <el-form-item label="档案编号" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.appendix" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="上传人编号" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.uploaderid" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="原始附件名称" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.originalname" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="远程附件名称" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.remotename" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="远程文件路径" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.remotepath" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="远程文件大小" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.remotesize" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="上传时间" :label-width="formLabelWidth">
-          <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
+          <el-date-picker v-model="form.uploaddate" type="date" placeholder="选择日期">
           </el-date-picker>
         </el-form-item>
         <el-form-item label="录入时间" :label-width="formLabelWidth">
-          <el-date-picker v-model="form.date" type="date" placeholder="选择日期">
+          <el-date-picker v-model="form.readdate" type="date" placeholder="选择日期">
           </el-date-picker>
         </el-form-item>
 
