@@ -13,15 +13,15 @@
                 </el-select>
             </el-form-item>
             <el-form-item label="账号" prop="name">
-                <el-input type="text" placeholder="请输入用户名" v-model="form.name"></el-input>
+                <el-input type="text" placeholder="请输入用户名" v-model="form.username"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="password">
                 <el-input type="password" placeholder="请输入密码" v-model="form.password"></el-input>
             </el-form-item>
             <el-form-item>
                 <!-- <el-button type="primary" @click="submitForm('form')">登录</el-button> -->
-                <!-- <el-button><router-link to="/my">登录</router-link></el-button> -->
-                <el-button @click="$router.push('/my')">登录</el-button>
+                <el-button type="primary" @click="handleLogin()">登录</el-button>
+                <!-- <el-button @click="$router.push('/my')">登录</el-button> -->
 
 
             </el-form-item>
@@ -44,7 +44,7 @@
             <el-form-item>
                 <el-button type="primary" @click="submitForm('form')">登录</el-button>
             </el-form-item>
-            </el-form> -->
+                    </el-form> -->
     </div>
 </template>
   
@@ -54,7 +54,7 @@ export default {
     data() {
         return {
             form: {
-                name: '',
+                username: '',
                 password: ''
             },
             rules: {
@@ -90,8 +90,20 @@ export default {
         selectItem(Id) {
             // update the route's query parameter with the selected item ID
             this.$router.replace({ query: { characterType: Id } });
+        },
+
+
+        async handleLogin() {
+            const { username, password } = this;
+            try {
+                username && password && await this.$store.dispatch('userLogin', { username, password });
+                let toPath = this.$route.query.redirect || 'home';
+                this.$router.push(toPath);
+            } catch (error) {
+                alert(error.message);
+            }
         }
-    }
+    },
 }
 </script>
   
@@ -147,4 +159,5 @@ export default {
     /* set Component A's z-index to 2 to make it appear on top of Component B */
     margin-left: 16vw;
 
-}</style>
+}
+</style>

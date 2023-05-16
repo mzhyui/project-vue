@@ -43,3 +43,13 @@ docker run -d -p 8080:8080 --name vue proj-vue
 user has to be root in ubuntu docker environment
 
 # nju-CDM
+
+## Django
+### Pre-require
+```bash
+#windows
+python -m pip install django
+python -m djangoadmin startproject mysite
+python manage.py runserver
+
+```
